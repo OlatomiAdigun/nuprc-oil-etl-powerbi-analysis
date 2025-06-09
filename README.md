@@ -49,9 +49,79 @@ This project automates the end-to-end ETL pipeline for Nigerian upstream oil pro
 ## 🧠 Automation Flow
 
 1. `run_pipeline.py` is executed monthly (via Task Scheduler)
+
+![Task Scheduler Screenshot](task_scheduler.png)
+
 2. New files are downloaded and cleaned
 3. A single CSV is generated and **overwritten** on Google Drive
 4. Power BI reads the Google Drive CSV and updates visuals
+
+---
+
+## 📊 Dashboard Analysis
+
+This project includes two pages in Power BI for analyzing Nigerian oil production from 2020–2025.
+
+---
+
+### 📄 Page 1: Nigeria Oil Production Overview
+
+This page provides a high-level summary of total oil and condensate production, volume trends, and stream performance.
+
+#### 🔍 Key Highlights
+
+- **Total Production (2020–2025)**:  
+  Over **3.07 billion barrels** produced across the period.
+
+- **Average Daily Production**:  
+  Averaged **1.58 million barrels/day**, with slight declines between 2020–2022, and a partial-year drop in 2025.
+
+- **Oil vs Condensate Composition**:  
+  Crude oil dominated with over **83% share**, maintaining a 5:1 oil-to-condensate ratio.
+
+- **Top Performing Streams**:  
+  Streams like **FORCADOS**, **BONNY**, and **QUA IBOE** consistently led in total volume.
+
+- **Monthly Seasonality**:  
+  A visual breakdown showed dips in April–June 2021 and August–October 2022, indicating seasonal or operational effects.
+
+- **Slicer-enabled Filters**:  
+  Users can filter by year, month, and stream to isolate patterns.
+
+---
+
+### 📄 Page 2: Performance & Opportunity Analysis
+
+This page focuses on performance metrics such as yearly growth, volatility, and short-term trends to surface actionable insights.
+
+#### 📈 Views Included
+
+| Visual | Purpose |
+|--------|---------|
+| **Top Producers by YoY Growth** | Streams with highest year-over-year increase |
+| **Bottom Producers by YoY Decline** | Streams with largest drops from previous year |
+| **Volatility (Coefficient of Variation)** | Measures stream stability over time |
+| **MoM % Change** | Monthly short-term production changes |
+| **Oil-to-Condensate Ratio Over Time** | Trend in blend composition |
+
+#### 🧪 Sample Insight (2023)
+
+From the 2023 dashboard:
+
+- ✅ **AJAPA** showed over **100% YoY growth**, signaling recovery.
+- 📉 **ABO** and **PENNINGTON** declined **~50%**, requiring operational review.
+- 🔁 **AJAPA** and **OKWORI** had the **highest variability**, flagging potential instability.
+- 📊 **BONGA** and **OTAKPIPO** combined strong growth with low variability — ideal for replication.
+- ⚖️ The oil-to-condensate ratio shifted mid-year, indicating temporary changes in blend strategy.
+
+---
+
+### 💼 Use Cases for Stakeholders
+
+- 📍 Identify scalable streams and allocate resources accordingly
+- 🚩 Detect streams in decline for further investigation
+- 🔁 Compare stream variability to prioritize maintenance
+- 📊 Report high-level insights to management using filters and visuals
 
 ---
 
