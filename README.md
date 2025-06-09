@@ -23,7 +23,14 @@ This project automates the end-to-end ETL pipeline for Nigerian upstream oil pro
 
 ## 📁 Folder Structure
 
-<pre> <code>``` nuprc_etl_clean/ │ ├── raw_data/ # Raw NUPRC files downloaded monthly ├── processed/ # Cleaned and combined output file (final_combined.csv) ├── run_pipeline.py # Main ETL script with GDrive upload ├── nuprc_report.pbix # Power BI dashboard file └── README.md # This documentation ```</code> </pre>
+nuprc_etl_clean/
+│
+├── raw_data/              # Raw NUPRC files downloaded monthly
+├── processed/             # Cleaned and combined output file (final_combined.csv)
+├── run_pipeline.py        # Main ETL script with GDrive upload
+├── nuprc_report.pbix      # Power BI dashboard file
+└── README.md              # This documentation
+
 
 
 ---
