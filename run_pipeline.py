@@ -116,6 +116,46 @@ for file in os.listdir(download_folder):
 df_combined = pd.concat(all_data, ignore_index=True)
 df_combined.dropna(inplace= True)
 
+# --- Step 3: Data Validation ---
+
+# 1. Check for missing values in key columns
+required_columns = ['Year', 'Month', 'Stream', 'Liquid Type', 'Production']
+missing_values = df_combined[required_columns].isnull().sum()
+if missing_values.any():
+    print("⚠️ Warning: Missing values detected in key columns:")
+    print(missing_values[missing_values > 0])
+else:
+    print("✅ No missing values in required columns.")
+
+# 2. Ensure production values are non-negative
+if (df_combined['Production'] < 0).any():
+    print("❌ Error: Negative production values found.")
+    df_combined = df_combined[df_combined['Production'] >= 0]
+else:
+    print("✅ All production values are non-negative.")
+
+# 3. Validate 'Month' against expected values
+valid_months = [
+    'January', 'February', 'March', 'April', 'May', 'June',
+    'July', 'August', 'September', 'October', 'November', 'December'
+]
+invalid_months = df_combined[~df_combined['Month'].isin(valid_months)]
+if not invalid_months.empty:
+    print("⚠️ Warning: Invalid month entries detected.")
+    print(invalid_months[['Month']].drop_duplicates())
+    df_combined = df_combined[df_combined['Month'].isin(valid_months)]
+else:
+    print("✅ All months are valid.")
+
+# 4. Check for duplicate records
+dupes = df_combined.duplicated(subset=['Year', 'Month', 'Stream', 'Liquid Type'], keep=False)
+if dupes.any():
+    print(f"⚠️ Found {dupes.sum()} duplicate rows. Keeping first occurrence.")
+    df_combined = df_combined[~dupes | ~df_combined.duplicated(subset=['Year', 'Month', 'Stream', 'Liquid Type'], keep='first')]
+else:
+    print("✅ No duplicate records found.")
+
+
 # Save as CSV locally
 final_csv_path = os.path.join(processed_folder, "final_combined.csv")
 df_combined.to_csv(final_csv_path, index=False)

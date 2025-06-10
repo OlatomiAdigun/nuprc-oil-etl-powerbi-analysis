@@ -53,8 +53,22 @@ This project automates the end-to-end ETL pipeline for Nigerian upstream oil pro
 ![Task Scheduler Screenshot](task_scheduler.png)
 
 2. New files are downloaded and cleaned
+
 3. A single CSV is generated and **overwritten** on Google Drive
 4. Power BI reads the Google Drive CSV and updates visuals
+
+---
+
+## ✅ Data Validation
+
+Robust validation steps were implemented before saving or uploading the final dataset:
+
+- **Missing Values Check**: Ensures no nulls in critical columns like `Year`, `Month`, `Stream`, `Liquid Type`, and `Production`.
+- **Negative Value Filter**: Removes any rows where `Production` is less than 0.
+- **Month Validation**: Ensures all month entries belong to the expected 12 calendar months.
+- **Duplicate Records**: Flags and removes duplicate entries based on `Year`, `Month`, `Stream`, and `Liquid Type`.
+
+These checks help maintain **data quality**, avoid errors in downstream Power BI reports, and ensure consistent data structure for analysis and automation.
 
 ---
 
