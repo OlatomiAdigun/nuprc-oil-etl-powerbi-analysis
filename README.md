@@ -80,6 +80,8 @@ This project includes two pages in Power BI for analyzing Nigerian oil productio
 
 ### 📄 Page 1: Nigeria Oil Production Overview
 
+![PowerBI PAge 1 Screenshot](PowerBI1.png)
+
 This page provides a high-level summary of total oil and condensate production, volume trends, and stream performance.
 
 #### 🔍 Key Highlights
@@ -105,6 +107,8 @@ This page provides a high-level summary of total oil and condensate production, 
 ---
 
 ### 📄 Page 2: Performance & Opportunity Analysis
+
+![PowerBI PAge 2 Screenshot](PowerBI2.png)
 
 This page focuses on performance metrics such as yearly growth, volatility, and short-term trends to surface actionable insights.
 
